@@ -16,6 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from predictor.views import  PredictorView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/predictor/', PredictorView.as_view())
 ]
