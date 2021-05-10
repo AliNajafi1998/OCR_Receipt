@@ -69,8 +69,8 @@ def detect(image_path: str):
     config = '-l eng --oem 1 --psm 3 -c preserve_interword_spaces=1'
     image_text = pytesseract.image_to_string(receipt_image, config=config)
     image_text = image_text.encode('ascii', 'ignore').decode('ascii')
-    lines = image_text.split('\n')
     image_text = re.sub(r'<a>', '<A>', image_text)
+    lines = image_text.split('\n')
     # removing redundant lines
     index = 0
     for line in lines:
