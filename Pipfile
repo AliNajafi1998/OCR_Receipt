@@ -9,6 +9,7 @@ pillow = "*"
 numpy = "*"
 opencv-python = "*"
 pytesseract = "*"
+djangorestframework = "==3.12.4"
 
 [dev-packages]
 
