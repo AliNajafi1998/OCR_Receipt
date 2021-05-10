@@ -4,7 +4,7 @@ upload receipt picture as `formdata` with `file` keyword
 
 will receive parsed result as json response
 
-#USAGE
+# USAGE
 
 1. cd OCR_Receipt
    
@@ -18,7 +18,7 @@ will receive parsed result as json response
 
 6. `endpoint`: "127.0.0.1:8000/api/predictor/"
 
-##TODO:
+## TODO:
 
     - make better and strict serializer.
     
