@@ -8,4 +8,5 @@ sudo apt-get install tesseract-ocr
 sudo apt-get install libtesseract-dev
 ```
 
+[Data for Tesseract](https://tesseract-ocr.github.io/tessdoc/Data-Files.html)
 
