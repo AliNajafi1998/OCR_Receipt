@@ -3,5 +3,5 @@
 __pycache__
 env
 .env
-.sqlite3
+*.sqlite3
 media/
