@@ -1,5 +1,6 @@
 OCR Reciept project
 
+
 upload receipt picture as `formdata` with `file` keyword
 
 will receive parsed result as json response
@@ -23,3 +24,15 @@ will receive parsed result as json response
     - make better and strict serializer.
     
     - use model for saving results if required.
+
+
+
+# Installing tesseract on Ubuntu
+
+```sudo apt-get update
+sudo apt-get install libleptonica-dev 
+sudo apt-get install tesseract-ocr
+sudo apt-get install libtesseract-dev
+```
+
+[Data for Tesseract](https://tesseract-ocr.github.io/tessdoc/Data-Files.html)

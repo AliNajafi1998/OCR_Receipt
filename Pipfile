@@ -5,6 +5,10 @@ name = "pypi"
 
 [packages]
 django = "==3.2.2"
+pillow = "*"
+numpy = "*"
+opencv-python = "*"
+pytesseract = "*"
 djangorestframework = "==3.12.4"
 
 [dev-packages]
