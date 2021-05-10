@@ -1,5 +1,8 @@
 import os
+import json
 from django.conf import settings
+
+from utils.ocr_scanner import detect
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -20,6 +23,5 @@ class PredictorView(APIView):
         with open(filename, 'wb+') as temp_file:
             for chunk in file_content.chunks():
                 temp_file.write(chunk)
-        # TODO: 'filename' is an entry for detector function
-        # TODO: returned json should be used as response
-        return Response({'result': 'result'})
+        result = detect(filename)
+        return Response({'result': json.loads(result)})
