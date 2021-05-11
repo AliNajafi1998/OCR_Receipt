@@ -31,7 +31,7 @@ class ImagePreprocessor:
         return image
 
     def crop_image(self, raw_image):
-        gray = cv2.cvtColor(raw_image, cv2.COLOR_BGR2GRAY)
+        gray = self.to_grayscale(raw_image)
         grad_x = cv2.Sobel(gray, ddepth=cv2.CV_32F, dx=1, dy=0, ksize=-1)
         grad_y = cv2.Sobel(gray, ddepth=cv2.CV_32F, dx=0, dy=1, ksize=-1)
         gradient = cv2.subtract(grad_x, grad_y)
@@ -90,7 +90,7 @@ def detect(image_path: str):
     text = re.sub(r'\n+', '\n', text)
     items = []
     matches = re.finditer(r'.*<A>(\n?.*\n?){2}', text, flags=re.MULTILINE)
-    for match_num, match in enumerate(matches, start=1):
+    for match in matches:
         item_text = match.group()
         item_name = re.findall(r'.+<A>', item_text)[0].strip()
         price = ''
@@ -108,8 +108,8 @@ def detect(image_path: str):
                     description += item_line + '\n'
         if not is_price_found:
             matches = re.finditer(r' +[0-9]+\.([0-9]+)?$', item_text, re.MULTILINE)
-            for new_match_num, new_match in enumerate(matches, start=1):
-                price = new_match.group().strip()
+            for sub_match in matches:
+                price = sub_match.group().strip()
                 break
             description = item_text.replace(price, '')
             description = description.replace(item_name, '')

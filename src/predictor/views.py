@@ -23,7 +23,6 @@ class PredictorView(APIView):
         with open(filename, 'wb+') as temp_file:
             for chunk in file_content.chunks():
                 temp_file.write(chunk)
-        print(filename)
         result = detect(filename)
         print(result)
         return Response({'result': json.loads(result)})
